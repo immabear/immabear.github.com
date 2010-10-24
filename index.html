@@ -26,7 +26,7 @@
           o.onload=o.onreadystatechange=function(){
            if(!j&&(!(s=this.readyState)||s==n||s==f)){
 			var p=window.open("","gijs","height=604,width=804");
-			if(window.focus)p.focus();
+			p.focus();
 			p.document.write(Retriever());
 			p.document.close();
            }
