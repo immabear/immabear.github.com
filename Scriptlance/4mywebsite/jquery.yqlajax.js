@@ -34,7 +34,10 @@ jQuery.ajax = (function(_ajax){
             
             o.success = (function(_success){
                 return function(data) {
-                    
+                    alert(data);
+					alert(data.results);
+					alert(data.results.join(",");
+					alert(data.results.Result.join(",");
                     if (_success) {
                         // Fake XHR callback.
                         _success.call(this, {
