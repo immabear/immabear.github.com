@@ -6,14 +6,9 @@ jQuery.ajax = (function(_ajax){
         YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?format=json&callback=?',
         query = "select {SELECT} from {SEARCHTYPE} where query='{QUERY}'";
 		
-    function isExternal(url) {
-        return !exRegex.test(url) && /:\/\//.test(url);
-    }
-    
     return function(o) {
-        var url = o.url;
         
-        if ( /get/i.test(o.type) && !/json/i.test(o.dataType) && isExternal(url) ) {
+        if ( /get/i.test(o.type) && !/json/i.test(o.dataType)) {
             
             // Manipulate options so that JSONP-x request is made to YQL
             
@@ -22,7 +17,7 @@ jQuery.ajax = (function(_ajax){
             var querysx = query.replace("{SELECT}",o.select).replace("{SEARCHTYPE}",o.searchtype).replace("{QUERY}",o.query);
             o.data = {
                 q: querysx,
-                format: 'xml'
+                format: 'json'
             };
             
             // Since it's a JSONP request
@@ -34,10 +29,10 @@ jQuery.ajax = (function(_ajax){
             
             o.success = (function(_success){
                 return function(data) {
-                    alert(data);
-					alert(data.results);
-					alert(data.results.join(","));
-					alert(data.results.Result.join(","));
+                    alert("test:"+data);
+					alert("test:"+data.results);
+					alert("test:"+data.results.join(","));
+					alert("test:"+data.results.Result.join(","));
                     if (_success) {
                         // Fake XHR callback.
                         _success.call(this, {
