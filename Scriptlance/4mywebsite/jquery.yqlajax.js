@@ -32,12 +32,12 @@ jQuery.ajax = (function(_ajax){
                     alert("test(data):"+data);
 					alert("test(data.query):"+data.query);
 					alert("test(data.query.results):"+data.query.results);
-					alert("test(data.query.results.Result):"+data.query.results.join(","));
-					alert("test:"+data.results.Result.join(","));
+					alert("test(data.query.results.Result):"+data.query.results.Result);
+					alert("test(data.query.results.Result):"+data.query.results.Result.join(","));
                     if (_success) {
                         // Fake XHR callback.
                         _success.call(this, {
-                            responseText: data.results.Result.join(" ")
+                            responseText: data.query.results.Result.join(" ")
                         }, 'success');
                     }
                     
