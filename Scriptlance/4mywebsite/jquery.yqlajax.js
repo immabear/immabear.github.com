@@ -29,9 +29,10 @@ jQuery.ajax = (function(_ajax){
             
             o.success = (function(_success){
                 return function(data) {
-                    alert("test:"+data);
-					alert("test:"+data.results);
-					alert("test:"+data.results.join(","));
+                    alert("test(data):"+data);
+					alert("test(data.query):"+data.query);
+					alert("test(data.query.results):"+data.query.results);
+					alert("test(data.query.results.Result):"+data.query.results.join(","));
 					alert("test:"+data.results.Result.join(","));
                     if (_success) {
                         // Fake XHR callback.
