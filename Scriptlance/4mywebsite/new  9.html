@@ -1,0 +1,30 @@
+<!doctype html> 
+<html lang="en"> 
+<head>
+<title>YQL alert() test -- 11/28/2010</title>
+<script src="http://github.com/immabear/GetInfo/raw/master/jquery.tools.min.js"></script>
+<script>
+function fetch(){
+  var results=[],
+  searchtags=document.getElementById("textarea").value,
+  query="select * from search.suggest where query='"+searchtags+"'",
+  yqlurl="http://query.yahooapis.com/v1/public/yql?q="+encodeURIComponent(query)+"&format=json&callback=cbfunc";
+  alert(yqlurl);
+  $.ajax({
+	url: yqlurl,
+	dataType: 'json',
+	data: data,
+	success: function(data){alert(data.results)}
+  });
+  alert("test");
+}
+</script>
+</head>
+<body>
+ <div style="display:block">
+  <input id='textarea' type='text' size='25' value='Search' />
+  <button onclick="fetch()">Search</button>
+ </div>
+</body>
+</html>
+

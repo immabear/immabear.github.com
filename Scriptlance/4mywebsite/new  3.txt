@@ -1,0 +1,14 @@
+http://query.yahooapis.com/v1/public/yql?q=
+
+select%20*%20from%20search.suggest%20where%20query=%22weight%20loss%22&format=json&diagnostics=false&callback=cbfunc
+
+select * from search.suggest where query="weight.loss"&format=json&diagnostics=false&callback=cbfunc
+
+
+function fetchRss(id,url,parser){
+ $("#"+id).html('Searching...');
+  var rssresults=[],
+  query="select * from feed where url='"+url+"'",
+  yqlurl="http://query.yahooapis.com/v1/public/yql?q="+encodeURIComponent(query)+"&format=json&callback=?";
+  $.getJSON(yqlurl, function(data){parseswitch(id,data,parser);});
+}

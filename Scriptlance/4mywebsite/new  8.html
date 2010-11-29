@@ -1,0 +1,42 @@
+<!doctype html> 
+<html lang="en"> 
+<head>
+<title>YQL alert() test -- 11/28/2010</title>
+<script src="http://github.com/immabear/GetInfo/raw/master/jquery.tools.min.js"></script>
+<script src="jquery.yqlajax.js"></script>
+<script>
+//fetch() calls the jQuery plugin I modified and then calls the parsing function.
+function fetch(id,select,searchtype,query){
+	//template: select {select} from {searchtype} where query='{query}'
+	//example: select * from search.suggest where query='weight.loss'
+	$.ajax({
+		select: select,
+		searchtype: searchtype,
+		query: encodeURIComponent(query),
+		type: "GET",
+		error: function(request, status){
+			error(id);
+		},
+		success: function(data){
+			parse(id,data);
+		}
+	});
+}
+function parse(id,data){
+	switch(data.responseText){
+		case '': error(); break;
+		default: alert(data.responseText);
+	}
+}
+function error(){
+	alert("No response.");
+}
+</script>
+</head>
+<body>
+	<div style="display:block">
+		<input id='textarea' type='text' size='25' value='Search' />
+		<button onclick="fetch('textarea','*','search.suggest',document.getElementById('textarea').value)">Search</button>
+	</div>
+</body>
+</html>
