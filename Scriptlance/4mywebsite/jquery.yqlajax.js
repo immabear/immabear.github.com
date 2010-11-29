@@ -1,3 +1,29 @@
+function fetch(id,select,searchtype,query){
+	//template: select {select} from {searchtype} where query='{query}'
+	//example: select * from search.suggest where query='weight.loss'
+	$.ajax({
+		select: select,
+		searchtype: searchtype,
+		query: query,
+		type: "GET",
+		error: function(request, status){
+			error(id);
+		},
+		success: function(data){
+			parse(id,data);
+		}
+	});
+}
+function parse(id,data){
+	switch(data.responseText){
+		case '': error(); break;
+		default: alert(data.responseText);
+	}
+}
+function error(){
+	alert("No response.");
+}
+
 jQuery.ajax = (function(_ajax){
 
     var protocol = location.protocol,
@@ -29,15 +55,10 @@ jQuery.ajax = (function(_ajax){
             
             o.success = (function(_success){
                 return function(data) {
-                    alert("test(data):"+data);
-					alert("test(data.query):"+data.query);
-					alert("test(data.query.results):"+data.query.results);
-					alert("test(data.query.results.Result):"+data.query.results.Result);
-					alert("test(data.query.results.Result):"+data.query.results.Result.join(","));
                     if (_success) {
                         // Fake XHR callback.
                         _success.call(this, {
-                            responseText: data.query.results.Result.join(" ")
+                            responseText: data.query.results.Result.join(",")
                         }, 'success');
                     }
                     
