@@ -1,14 +1,66 @@
-<!doctype html> 
-<html lang="en"> 
-<head>
-<title>YQL alert() test -- 11/28/2010</title>
-<script src="http://github.com/immabear/GetInfo/raw/master/jquery.tools.min.js"></script>
-<script src="https://github.com/immabear/immabear.github.com/raw/master/Scriptlance/4mywebsite/jquery.yqlajax.js"></script>
-</head>
-<body>
-	<div style="display:block">
-		<input id='textarea' type='text' size='25' value='Search' />
-		<button onclick="fetch('textarea','*','search.suggest',document.getElementById('textarea').value)">Search</button>
-	</div>
-</body>
+<html lang='en'>
+ <head>
+  <title>GET: INFO by IMMABEAR</title>
+  <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+  <link rel='stylesheet' type='text/css' href='styles.css'/>
+  <link rel='shortcut icon' href='favicon.jpg'/>
+ </head>
+ <body>
+  <table>
+   <tr>
+    <td valign='top'>
+     To install:
+	 <ul>
+	  <li>Right-click and save hyperlink.</li>
+	  <li>Drag link to appropriate toolbar.</li>
+	  <li>Just click to try it.*</li>
+	 </ul>
+	 Popup:
+	 <ul>
+	  <li>
+	   <a
+        href='
+         javascript:
+         (function(g,e,t,i,n,f,o,j,s){
+          o=g.createElement(e),o.type=t,o.src=i,
+          o.onload=o.onreadystatechange=function(){
+           if(!j&&(!(s=this.readyState)||s==n||s==f)){
+			var p=window.open("","gijs","height=604,width=804");
+			p.focus();
+			p.document.write(Retriever());
+			p.document.close();
+           }
+          };
+          g.documentElement.childNodes[0].appendChild(o);
+         })
+         (document,"script","text/javascript","http://github.com/immabear/GetInfo/raw/master/getip.js","loaded","complete");'
+       >GET:INFO
+	   </a>
+	  </li>
+	 </ul>
+     Window:
+	 <ul>
+	  <li>
+	   <a
+        href='
+         javascript:
+         (function(g,e,t,i,n,f,o,j,s){
+          o=g.createElement(e),o.type=t,o.src=i,
+          o.onload=o.onreadystatechange=function(){
+           if(!j&&(!(s=this.readyState)||s==n||s==f)){
+            document.write(Retriever());
+            document.close();
+           }
+          };
+          g.documentElement.childNodes[0].appendChild(o);
+         })
+         (document,"script","text/javascript","http://github.com/immabear/GetInfo/raw/master/getip.js","loaded","complete");'
+       >GET:INFO
+       </a>
+	  </li>
+	 </ul>*The popup version is initially blocked by most browsers.
+    </td>
+   </tr>
+  </table>
+ </body>
 </html>
